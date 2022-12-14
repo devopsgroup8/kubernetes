@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: first-rs
+  labels:
+    env: dev
+spec:
+  selector:
+    matchLabels:
+      env: dev      
+  replicas: 5
+  strategy:
+    RollingUpdate:
+  template:
+    metadata:
+      labels:       
+        env: dev  
+    spec:
+      containers:    
+      - name: nginx
+        image: tomcat:8
