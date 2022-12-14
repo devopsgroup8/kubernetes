@@ -1,0 +1,14 @@
+# kubectl run nginx --image nginx -o yaml --dry-run=client
+# Above command is used to generate a yaml to create a standalone pod
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  containers:
+  - image: nginx
+    name: nginx
