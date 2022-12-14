@@ -1,0 +1,22 @@
+# this yaml is used to create a replicaset.
+#  kubectl apply -f rs.yaml is used to apply the changes in yaml.
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: first-rs
+  labels:
+    env: dev
+spec:
+  selector:
+    matchLabels:
+      env: dev      
+  replicas: 5
+  template:
+    metadata:
+      labels:       
+        env: dev  
+    spec:
+      containers:    
+      - name: nginx
+        image: nginx    
