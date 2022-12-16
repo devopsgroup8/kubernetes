@@ -1,0 +1,10 @@
+apiVersion: value
+
+
+spec:
+  containers:
+           - name: firstcont
+           - name: secondcon
+           - name: thirdcontainer
+
+
