@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: first-rs
+  labels:
+    env: dev
+spec:
+  selector:
+    matchLabels:
+      env: dev      
+  replicas: 5
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:       
+        env: dev  
+    spec:
+      nodeSelector:
+        color: blue       
+      containers:    
+      - name: nginx
+        image: tomcat:9
