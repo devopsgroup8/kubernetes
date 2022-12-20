@@ -16,8 +16,15 @@ spec:
       labels:       
         env: dev  
     spec:
-      nodeSelector:
-        color: bluee       
       containers:    
       - name: nginx
         image: tomcat:9
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: color
+                operator: In
+                values:
+                - blue
